@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+
+  # docker-compose exec server /bin/bash
+  server:
+    build: './server/'
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www/html
+      - ./server/virtualhost.conf:/etc/apache2/sites-available/000-default.conf
+    container_name: site_server
